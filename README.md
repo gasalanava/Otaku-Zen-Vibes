@@ -1,59 +1,75 @@
-# Otaku Zen Vibes — Premium Static Website
+# Otaku Zen Vibes — Premium Website V2
 
-Primera versión de landing page premium para reemplazar la página hecha en Canva y publicarla desde GitHub Pages.
+Esta versión ajusta la página para acercarla más a la estética real del canal de YouTube:
 
-## Qué incluye
+- Fondo negro premium.
+- Rosa neón, azul eléctrico, violeta y acentos tipo club/anime.
+- Hero inspirado en el banner actual.
+- Video principal de YouTube integrado en el inicio.
+- Sección de últimos videos preparada para mostrar los 3 últimos uploads.
+- Textos de marca incorporados.
+- Merch tratada como extensión de marca, no como tienda genérica.
 
-- `index.html`: estructura semántica de la página.
-- `styles.css`: diseño premium responsive, sin frameworks.
-- `script.js`: menú móvil, efecto de header y revelado suave.
-- `assets/favicon.svg`: ícono básico de marca.
-- `assets/og-image.png`: imagen social para WhatsApp, Facebook, X y previsualizaciones.
-- `CNAME`: preparado para `otakuzenvibes.com`.
-- `.nojekyll`: evita que GitHub Pages procese el sitio con Jekyll.
+## Cómo actualizar el repositorio
 
-## Enfoque de marca
+1. Copia estos archivos sobre tu repositorio actual.
+2. No agregues todavía `CNAME` si solo quieres ver la versión de prueba en GitHub Pages.
+3. Haz commit.
+4. Haz push.
+5. Revisa la página en:
 
-La página se organiza así:
+```txt
+https://gasalanava.github.io/Otaku-Zen-Vibes/
+```
 
-1. Otaku Zen Vibes como marca musical.
-2. YouTube como destino principal.
-3. Vibes o mundos musicales.
-4. Merch como extensión premium de la marca.
-5. About y cierre emocional.
+## Video principal
 
-## Cómo subirlo a GitHub
+El video destacado está en `index.html`:
 
-1. Crea un repositorio nuevo, por ejemplo: `otakuzenvibes-web`.
-2. Sube todos estos archivos a la raíz del repositorio.
-3. En GitHub entra a `Settings > Pages`.
-4. En `Build and deployment`, selecciona `Deploy from a branch`.
-5. Selecciona la rama `main` y carpeta `/root`.
-6. Guarda.
+```html
+https://www.youtube.com/embed/CGwweLARPCg?rel=0&modestbranding=1
+```
 
-## Dominio
+## Últimos 3 videos automáticos
 
-El archivo `CNAME` contiene:
+En `script.js` existe esta línea:
+
+```js
+youtubeChannelId: "",
+```
+
+Para que el mosaico se actualice automáticamente con los últimos 3 videos, debes poner allí el Channel ID real de YouTube. Debe empezar por `UC`.
+
+Ejemplo:
+
+```js
+youtubeChannelId: "UCxxxxxxxxxxxxxxxxxxxxxx",
+```
+
+El handle `@OtakuZenVibes` no siempre sirve para leer el feed RSS. YouTube usa el Channel ID para este feed:
+
+```txt
+https://www.youtube.com/feeds/videos.xml?channel_id=UC...
+```
+
+Mientras ese dato esté vacío, el sitio muestra un fallback elegante con enlaces al canal y al video destacado.
+
+## Cuando conectes el dominio real
+
+Antes de conectar `otakuzenvibes.com`, cambia en `index.html` estas URLs:
+
+```html
+https://gasalanava.github.io/Otaku-Zen-Vibes/
+```
+
+por:
+
+```html
+https://otakuzenvibes.com/
+```
+
+Luego sí puedes volver a crear el archivo `CNAME` con:
 
 ```txt
 otakuzenvibes.com
 ```
-
-Si vas a usar `www.otakuzenvibes.com`, cambia el contenido de `CNAME` por:
-
-```txt
-www.otakuzenvibes.com
-```
-
-Recomendación práctica: usa primero el dominio raíz `otakuzenvibes.com`, y luego configura redirección o DNS para `www`.
-
-## Ajustes pendientes
-
-- Reemplazar los links `Coming soon` de la sección merch por los enlaces reales de compra.
-- Agregar Instagram, TikTok o Spotify si quieres llevar tráfico a más plataformas.
-- Si tienes logo oficial en PNG o SVG, sustituir el círculo `OZV` por el logo real.
-- Cambiar `og-image.png` por una imagen definitiva de marca si luego generamos una visual más potente.
-
-## Publicación recomendada
-
-El sitio está listo para GitHub Pages sin procesos de compilación. No usa React, Vite ni dependencias. Esto reduce errores y facilita que puedas copiar, pegar, subir y publicar.
