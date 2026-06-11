@@ -1,75 +1,38 @@
-# Otaku Zen Vibes — Premium Website V2
+# Otaku Zen Vibes — Premium Website Final
 
-Esta versión ajusta la página para acercarla más a la estética real del canal de YouTube:
+Versión final ajustada con los cambios solicitados:
 
-- Fondo negro premium.
-- Rosa neón, azul eléctrico, violeta y acentos tipo club/anime.
-- Hero inspirado en el banner actual.
-- Video principal de YouTube integrado en el inicio.
-- Sección de últimos videos preparada para mostrar los 3 últimos uploads.
-- Textos de marca incorporados.
-- Merch tratada como extensión de marca, no como tienda genérica.
+- Logo oficial en el header.
+- Hero con tarjeta play del video destacado.
+- Video destacado integrado.
+- Sección “Put the world on silent” con imagen atmosférica.
+- Mosaico de 6 videos reales del canal.
+- About limpio, sin imagen dañina ni superposición.
+- Se eliminó la sección “Different energies can live together”.
+- Merch reconstruida con tarjetas premium e imágenes individuales.
+- Cierre con enlaces a YouTube, Instagram y TikTok.
+- Sin archivo CNAME para mantener la vista de prueba en GitHub Pages.
 
-## Cómo actualizar el repositorio
+## Publicación de prueba
 
-1. Copia estos archivos sobre tu repositorio actual.
-2. No agregues todavía `CNAME` si solo quieres ver la versión de prueba en GitHub Pages.
-3. Haz commit.
-4. Haz push.
-5. Revisa la página en:
+Sube estos archivos a tu repositorio y usa GitHub Pages en:
+
+- Source: Deploy from a branch
+- Branch: main
+- Folder: /root
+
+URL esperada:
 
 ```txt
 https://gasalanava.github.io/Otaku-Zen-Vibes/
 ```
-
-## Video principal
-
-El video destacado está en `index.html`:
-
-```html
-https://www.youtube.com/embed/CGwweLARPCg?rel=0&modestbranding=1
-```
-
-## Últimos 3 videos automáticos
-
-En `script.js` existe esta línea:
-
-```js
-youtubeChannelId: "",
-```
-
-Para que el mosaico se actualice automáticamente con los últimos 3 videos, debes poner allí el Channel ID real de YouTube. Debe empezar por `UC`.
-
-Ejemplo:
-
-```js
-youtubeChannelId: "UCxxxxxxxxxxxxxxxxxxxxxx",
-```
-
-El handle `@OtakuZenVibes` no siempre sirve para leer el feed RSS. YouTube usa el Channel ID para este feed:
-
-```txt
-https://www.youtube.com/feeds/videos.xml?channel_id=UC...
-```
-
-Mientras ese dato esté vacío, el sitio muestra un fallback elegante con enlaces al canal y al video destacado.
 
 ## Cuando conectes el dominio real
 
-Antes de conectar `otakuzenvibes.com`, cambia en `index.html` estas URLs:
-
-```html
-https://gasalanava.github.io/Otaku-Zen-Vibes/
-```
-
-por:
-
-```html
-https://otakuzenvibes.com/
-```
-
-Luego sí puedes volver a crear el archivo `CNAME` con:
+Cuando decidas publicar en `otakuzenvibes.com`, cambia las URLs canónicas de `index.html` y agrega un archivo `CNAME` con:
 
 ```txt
 otakuzenvibes.com
 ```
+
+No agregues CNAME todavía si solo quieres seguir probando en GitHub Pages.
